@@ -10,6 +10,8 @@ class DroneController:
     def __init__(self):
         rospy.init_node("drone_controller", anonymous=True)
         self.bridge = CvBridge()
+        #Kodun bu kısmında drone kamerasından gelen konuya abone oluyoruz. Burada ardupilot ile elen gelen konuya abone oluyoruz.
+        #Rosun kurulu olduğundan emin olun !!
         self.image_sub = rospy.Subscriber("/webcam/image_raw", Image, self.kameraCallback)
 
     def kameraCallback(self, data):
